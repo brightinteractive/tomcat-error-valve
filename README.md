@@ -42,4 +42,6 @@ Configuration
 
 - Edit _tomcat-error-valve.properties_ and set _html.path_ property to the html page to serve
 
+- Ensure that you have configured tomcat to handle 404s in the way described in _Introduction(2)_ (i.e. handle plain wrong invalid URLs outside asset-bank webapp)
+
 - Restart tomcat
