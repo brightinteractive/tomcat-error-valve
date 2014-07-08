@@ -14,7 +14,7 @@ Define an error-page node in _webapp/asset-bank/WEB-INF/web.xml_
 
 2) _http://localhost/broken_url_ - where webapp by this name does not exist
 
-Top customise:
+To customise:
 
 Define an error-page node in _tomcat_home/conf/web.xml_ (referenced file is relative to in _webapp/ROOT_)
 
