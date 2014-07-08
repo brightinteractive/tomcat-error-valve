@@ -30,11 +30,10 @@ public class ErrorValve extends ErrorReportValve
 
 	public String getHtmlPage(String path) throws IOException
 	{
-		String everything = "";
+		StringBuilder sb = new StringBuilder();
 		BufferedReader br = new BufferedReader(new FileReader(path));
 		try
 		{
-			StringBuilder sb = new StringBuilder();
 			String line = br.readLine();
 
 			while (line != null)
@@ -43,12 +42,11 @@ public class ErrorValve extends ErrorReportValve
 				sb.append(System.getProperty("line.separator"));
 				line = br.readLine();
 			}
-			everything = sb.toString();
 		} finally
 		{
 			br.close();
 		}
-		return everything;
+		return sb.toString();
 	}
 
 	/**
