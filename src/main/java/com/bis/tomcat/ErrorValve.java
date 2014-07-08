@@ -66,7 +66,7 @@ public class ErrorValve extends ErrorReportValve
 
 		// Do nothing on a 1xx, 2xx and 3xx status
 		// Do nothing if anything has been written already
-		if ((statusCode < 400) /*|| (response.getContentCount() > 0 */)
+		if ((statusCode < 400) /*|| (response.getContentCount() > 0 - this appears to prevent the valve from executing */)
 			return;
 
 		String message = RequestUtil.filter(response.getMessage());
@@ -84,6 +84,7 @@ public class ErrorValve extends ErrorReportValve
 		}
 		if (report == null)
 		{
+			// this seems to be null even in valid cases where we want the valve to handle the 404
 			//return;
 		}
 
