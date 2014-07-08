@@ -127,6 +127,9 @@ public class ErrorValve extends ErrorReportValve
 		}
 	}
 
+	/**
+	 * This method is extracted 'as-is' from the superclass report method
+	 */
 	private void appendPage(Throwable throwable, int statusCode, String message, String report, StringBuilder sb)
 	{
 		sb.append("<html><head><title>");
