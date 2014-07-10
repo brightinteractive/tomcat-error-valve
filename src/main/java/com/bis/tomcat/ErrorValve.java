@@ -12,7 +12,9 @@ import java.util.Properties;
 
 public class ErrorValve extends ErrorReportValve
 {
-	public String getHtmlLocation() throws IOException
+	String PROPERTIES_PATH = "./conf/tomcat-error-valve.properties";
+
+	public String getHtmlLocation(String path) throws IOException
 	{
 
 		String versionString = null;
@@ -20,7 +22,7 @@ public class ErrorValve extends ErrorReportValve
 		FileInputStream file;
 
 		//the base folder is ./, the root of the main.properties file
-		String path = "./conf/tomcat-error-valve.properties";
+
 		file = new FileInputStream(path);
 		mainProperties.load(file);
 		file.close();
@@ -30,6 +32,8 @@ public class ErrorValve extends ErrorReportValve
 
 	public String getHtmlPage(String path) throws IOException
 	{
+		File file = new File("test");
+		file.exists();
 		StringBuilder sb = new StringBuilder();
 		BufferedReader br = new BufferedReader(new FileReader(path));
 		try
@@ -92,7 +96,7 @@ public class ErrorValve extends ErrorReportValve
 
 		try
 		{
-			String pageString = getHtmlPage(getHtmlLocation());
+			String pageString = getHtmlPage(getHtmlLocation(PROPERTIES_PATH));
 			sb.append(pageString);
 		} catch (Throwable e)
 		{
