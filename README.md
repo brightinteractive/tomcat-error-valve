@@ -41,6 +41,9 @@ Configuration
 - Put static html file in an accessible location.
 
 - Edit _tomcat-error-valve.properties_ and set _html.path_ property to the html page to serve
+- Edit server.xml and add attribute errorReportValveClass: 
+    
+    \<Host … errorReportValveClass="com.bright.tomcat.ErrorValve"\> 
 
 - Ensure that you have configured tomcat to handle 404s in the way described in _Introduction(2)_ (i.e. handle plain wrong invalid URLs outside asset-bank webapp)
 
